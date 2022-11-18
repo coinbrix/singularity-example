@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- set below colors for colorPrimary, colorPrimaryDark and colorAccent of UI SDK -->
+    <color name="color_primary">#4994EC</color>
+    <color name="color_primary_dark">#4994EC</color>
+    <color name="color_accent">#4994EC</color>
+    <color name="color_base_text">#ffffff</color> //Text color of header text and button text
+
+</resources>
