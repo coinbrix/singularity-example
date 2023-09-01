@@ -1,1 +1,0 @@
-../../../../.symlinks/plugins/singularity_flutter/ios/Classes/SingularityFlutterPlugin.h
