@@ -270,10 +270,8 @@ class _MyAppState extends State<MyApp> implements SigularitySDKProtocol, Singula
 
                   var txnData = {
                     'from': publicAddress,
-                    'gasPrice': '20000000000',
-                    'gas': '21000',
                     'to': '0x17F547ae02a94a0339c4CFE034102423907c4592',
-                    'value': '1000000000000000000',
+                    'value': '10000000000000000',
                   };
 
                   var signature = await _gamepay.signAndSendTransaction(txnData);
@@ -282,24 +280,24 @@ class _MyAppState extends State<MyApp> implements SigularitySDKProtocol, Singula
                 }
                 catch(e){ }
               }, child: Text("Test Sign and send transaction")),
-              ElevatedButton(onPressed: () async {
-                try{
-                  var userData = await _gamepay.getUserInfo();
-                  var publicAddress = userData['metaData']['wallet']['accounts']['evmPublicAddress'][0]['publicAddress'];
-
-                  var txnData = {
-                    'from': publicAddress,
-                    'gasPrice': '20000000000',
-                    'gas': '21000',
-                    'to': '0x17F547ae02a94a0339c4CFE034102423907c4592',
-                    'value': '1000000000000000000',
-                  };
-
-                  var signature = await _gamepay.signTransaction(txnData);
-                  showAlertDialog(context, 'Sign result', signature.toString());
-                }
-                catch(e){ }
-              }, child: Text("Test send transaction"))
+              // ElevatedButton(onPressed: () async {
+              //   try{
+              //     var userData = await _gamepay.getUserInfo();
+              //     var publicAddress = userData['metaData']['wallet']['accounts']['evmPublicAddress'][0]['publicAddress'];
+              //
+              //     var txnData = {
+              //       'from': publicAddress,
+              //       'gasPrice': '20000000000',
+              //       'gas': '21000',
+              //       'to': '0x17F547ae02a94a0339c4CFE034102423907c4592',
+              //       'value': '1000000000000000000',
+              //     };
+              //
+              //     var signature = await _gamepay.signTransaction(txnData);
+              //     showAlertDialog(context, 'Sign result', signature.toString());
+              //   }
+              //   catch(e){ }
+              // }, child: Text("Test sign transaction"))
 
             ],
           )
