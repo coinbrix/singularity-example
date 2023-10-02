@@ -23966,7 +23966,7 @@ $1(a){var s=$.bP
 s=(s==null?$.bP=A.ed(self.window.flutterConfiguration):s).b
 if(s==null)s=null
 else{s=s.canvasKitBaseUrl
-if(s==null)s=null}return(s==null?"https://www.gstatic.com/flutter-canvaskit/b20183e04096094bcc37d9cde2a4b96f5cc684cf/":s)+a},
+if(s==null)s=null}return(s==null?"https://www.gstatic.com/flutter-canvaskit/bd986c5ed20a62dc34b7718c50abc782beae4c33/":s)+a},
 $S:69}
 A.aex.prototype={
 $1(a){this.a.remove()
@@ -75242,7 +75242,7 @@ s=document
 r=s.createElement("script")
 r.async=!0
 r.type="text/javascript"
-B.vR.Fd(r,"  (function (w, d, s, o, f, js, fjs, e) {\n    w[o] =\n      w[o] ||\n      function () {\n        (w[o].q = w[o].q || []).push(arguments);\n      };\n    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);\n    js.id = o;\n    js.src = f;\n    js.async = 1;\n    fjs.parentNode.insertBefore(js, fjs);\n    w.SingularityEnv = e;\n    w.isFlutter = true\n  })(\n    window,\n    document,\n    'script',\n    'Singularity',\n    'https://unpkg.com/singularity-client-script@1.7.8/index.js',\n    '',\n    '',\n    'production',\n  );\n  \n    // Call the window.onload handler explicitly\n    setTimeout(()=>{\n    console.log('window',window)\n    console.log('window.onload',window.onload)\n    if (typeof window.onload === 'function') {\n      window.onload();\n    } \n    }, 2500)\n   \n  \n")
+B.vR.Fd(r,"  (function (w, d, s, o, f, js, fjs, e) {\n    w[o] =\n      w[o] ||\n      function () {\n        (w[o].q = w[o].q || []).push(arguments);\n      };\n    (js = d.createElement(s)), (fjs = d.getElementsByTagName(s)[0]);\n    js.id = o;\n    js.src = f;\n    js.async = 1;\n    fjs.parentNode.insertBefore(js, fjs);\n    w.SingularityEnv = e;\n    w.isFlutter = true\n  })(\n    window,\n    document,\n    'script',\n    'Singularity',\n    'https://unpkg.com/singularity-client-script@1.7.9/index.js',\n    '',\n    '',\n    'production',\n  );\n  \n    // Call the window.onload handler explicitly\n    setTimeout(()=>{\n    console.log('window',window)\n    console.log('window.onload',window.onload)\n    if (typeof window.onload === 'function') {\n      window.onload();\n    } \n    }, 2500)\n   \n  \n")
 s.head.appendChild(r).toString}}
 A.a4W.prototype={
 $1(a){return this.R1(a)},
