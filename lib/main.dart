@@ -24,6 +24,8 @@ class _MyAppState extends State<MyApp> implements SigularitySDKProtocol, Singula
   late TextEditingController _controller;
   late TextEditingController _personalMessageController;
   late TextEditingController _transactionAmountController;
+  late TextEditingController _signTransactionController;
+  late TextEditingController _signAndSendTransactionController;
 
   String selectedValue = '800011'; // Store the selected value here
 
@@ -34,9 +36,13 @@ class _MyAppState extends State<MyApp> implements SigularitySDKProtocol, Singula
     _controller = TextEditingController();
     _personalMessageController = TextEditingController();
     _transactionAmountController = TextEditingController();
+    _signTransactionController = TextEditingController();
+    _signAndSendTransactionController = TextEditingController();
     _controller.text = "2";
     _personalMessageController.text = "Some message";
     _transactionAmountController.text = "0.001";
+    _signTransactionController.text = '{"value":100000000000000,"to":"0xCA4511435F99dcbf3Ab7cba04C8A16721eB7b894"}';
+    _signAndSendTransactionController.text = '{"value":100000000000000,"to":"0xCA4511435F99dcbf3Ab7cba04C8A16721eB7b894"}';
 
     /// initalize variable of SingularityFlutter
     _gamepay = SingularityFlutter(this);
@@ -47,6 +53,8 @@ class _MyAppState extends State<MyApp> implements SigularitySDKProtocol, Singula
     _controller.dispose();
     _personalMessageController.dispose();
     _transactionAmountController.dispose();
+    _signTransactionController.dispose();
+    _signAndSendTransactionController.dispose();
     super.dispose();
   }
 
@@ -263,41 +271,48 @@ class _MyAppState extends State<MyApp> implements SigularitySDKProtocol, Singula
                   );
                 }
               }, child: Text("Start transaction")),
+              TextField(
+                controller: _signAndSendTransactionController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
+              ),
               ElevatedButton(onPressed: () async {
                 try{
+                  var txnDataString = _signAndSendTransactionController.text;
+
                   var userData = await _gamepay.getUserInfo();
                   var publicAddress = userData['metaData']['wallet']['accounts']['evmPublicAddress'][0]['publicAddress'];
 
-                  var txnData = {
-                    'from': publicAddress,
-                    'to': '0x17F547ae02a94a0339c4CFE034102423907c4592',
-                    'value': '10000000000000000',
-                  };
-
-                  var signature = await _gamepay.signAndSendTransaction(txnData);
+                  var signature = await _gamepay.signAndSendTransaction(txnDataString);
                   showAlertDialog(context, 'Sign and send result', signature.toString());
 
                 }
-                catch(e){ }
+                catch(e){
+                  debugPrint('Error: ' + e.toString());
+                }
               }, child: Text("Test Sign and send transaction")),
-              // ElevatedButton(onPressed: () async {
-              //   try{
-              //     var userData = await _gamepay.getUserInfo();
-              //     var publicAddress = userData['metaData']['wallet']['accounts']['evmPublicAddress'][0]['publicAddress'];
-              //
-              //     var txnData = {
-              //       'from': publicAddress,
-              //       'gasPrice': '20000000000',
-              //       'gas': '21000',
-              //       'to': '0x17F547ae02a94a0339c4CFE034102423907c4592',
-              //       'value': '1000000000000000000',
-              //     };
-              //
-              //     var signature = await _gamepay.signTransaction(txnData);
-              //     showAlertDialog(context, 'Sign result', signature.toString());
-              //   }
-              //   catch(e){ }
-              // }, child: Text("Test sign transaction"))
+              TextField(
+                controller: _signTransactionController,
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              ElevatedButton(onPressed: () async {
+                try{
+                  var txnDataString = _signTransactionController.text;
+
+                  var userData = await _gamepay.getUserInfo();
+                  var publicAddress = userData['metaData']['wallet']['accounts']['evmPublicAddress'][0]['publicAddress'];
+
+                  var signature = await _gamepay.signTransaction(txnDataString);
+                  showAlertDialog(context, 'Sign result', signature.toString());
+
+                }
+                catch(e){
+                  debugPrint('Error: ' + e.toString());
+                }
+              }, child: Text("Test Sign transaction")),
 
             ],
           )
