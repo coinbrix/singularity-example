@@ -22,7 +22,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  singularity_flutter: ^1.5.7
+  singularity_flutter: ^1.5.8
   crypto: ^3.0.2
   fluttertoast: ^8.1.1
   uuid: ^3.0.4  # Use the latest version of the uuid package
